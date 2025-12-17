@@ -23,8 +23,7 @@ Add the following inside composer.json:
 "repositories": [
 {
 "type": "vcs",
-"url": "https://github.com/atikullahnasar/setting
-"
+"url": "https://github.com/atikullahnasar/setting"
 }
 ]
 
