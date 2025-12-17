@@ -7,6 +7,7 @@ Requirements
 
 PHP ^8.0
 Laravel ^9 / ^10 / ^11
+must need to be have any kinds of authentication system
 
 Composer
 
