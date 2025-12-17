@@ -20,13 +20,13 @@ This package is not published on Packagist yet, so you need to add the GitHub re
 
 Add the following inside composer.json:
 
-"repositories": {
+"repositories": [
 {
 "type": "vcs",
 "url": "https://github.com/atikullahnasar/setting
 "
 }
-}
+]
 
 Save the file after adding this.
 
