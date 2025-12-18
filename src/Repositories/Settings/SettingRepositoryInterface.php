@@ -2,7 +2,7 @@
 
 namespace atikullahnasar\setting\Repositories\Settings;
 
-use App\Repositories\BaseRepositoryInterface;
+use atikullahnasar\setting\Repositories\BaseRepositoryInterface;
 
 interface SettingRepositoryInterface extends BaseRepositoryInterface
 {

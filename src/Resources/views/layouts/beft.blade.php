@@ -84,12 +84,12 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ request()->is('beft/footer-settings*') || request()->is('beft/homepage-settings*') || request()->is('beft/settings*') ? 'active' : '' }}" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ request()->is('beft/footer-settings*') || request()->is('beft/settings*') || request()->is('beft/settings*') ? 'active' : '' }}" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Settings
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
-                        <li><a class="dropdown-item" href="{{ url('beft/homepage-settings') }}">System Settings</a></li>
+                        <li><a class="dropdown-item" href="{{ url('beft/settings') }}">System Settings</a></li>
                         <li><a class="dropdown-item" href="{{ url('beft/footer-settings') }}">Footer Settings</a></li>
                         <li><a class="dropdown-item" href="{{ url('beft/site-settings') }}">Site Settings</a></li>
                         <li><hr class="dropdown-divider"></li>

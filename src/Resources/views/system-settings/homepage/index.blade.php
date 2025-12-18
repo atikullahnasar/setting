@@ -203,8 +203,7 @@
             btn.addEventListener('click', function() {
                 const targetId = this.dataset.target;
                 const inputName = this.dataset.name;
-                const html = `
-                    <div class="input-group mt-2 mb-2 pointItem">
+                const html = `<div class="input-group mt-2 mb-2 pointItem">
                         <input type="text" name="${inputName}" class="form-control" placeholder="Enter point">
                         <button type="button" class="btn btn-outline-danger remove-button" data-target=".pointItem">
                             <iconify-icon icon="ic:twotone-close"></iconify-icon>
