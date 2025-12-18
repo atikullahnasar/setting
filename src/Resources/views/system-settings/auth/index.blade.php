@@ -1,5 +1,4 @@
 @php
-
     $settings = $settings ?? [];
     $auth_page_enabled = $settings['auth_page_enabled'] ?? 'yes';
     $auth_page_image = $settings['auth_page_image'] ?? '';
