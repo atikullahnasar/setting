@@ -48,6 +48,9 @@ Run the database migrations:
 
 php artisan migrate
 
+then added "$this->call([CountrySeeder::class,]);" this on your project database/seeders/DatabaseSeeder.php and also call
+"use atikullahnasar\setting\Database\Seeders\CountrySeeder;" use it in the top 
+
 Step 5: Access the Settings Panel
 
 After installation, you can access the settings management panel from your browser:
