@@ -1,8 +1,15 @@
 @php
+
     $settings = $settings ?? [];
     $auth_page_enabled = $settings['auth_page_enabled'] ?? 'yes';
     $auth_page_image = $settings['auth_page_image'] ?? '';
-    $auth_page_points = $settings['auth_page_points'] ? json_decode($settings['auth_page_points']) : [];
+
+    $auth_page_points = [];
+    if (!empty($settings['auth_page_points'])) {
+        $auth_page_points = is_array($settings['auth_page_points'])
+            ? $settings['auth_page_points']
+            : json_decode($settings['auth_page_points']);
+    }
 @endphp
 @extends('setting::layouts.beft')
 
