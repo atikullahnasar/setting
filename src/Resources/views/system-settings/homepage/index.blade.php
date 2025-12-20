@@ -278,7 +278,7 @@
         document.querySelector('.addChooseUsItem').addEventListener('click', function () {
             const index = chooseUsList.querySelectorAll('.chooseUsItem').length;
             const html = `
-                <div class="chooseUsItem row g-3 align-items-end mb-2 border p-3">
+                <div class="chooseUsItem row g-3 align-items-end mb-2 p-3">
                     <div class="col-md-4 col-12">
                         <label class="form-label">Main Info</label>
                         <input type="text" name="items[${index}][info]" class="form-control">

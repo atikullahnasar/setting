@@ -1,5 +1,5 @@
 <div id="chooseUS" role="tabpanel" aria-labelledby="chooseUS-tab" >
-     <h5 class="mb-3 text-center ">Choose Us</h5>
+    <h5 class="mb-3 text-center ">Choose Us</h5>
 
     <form id="chooseUsForm" method="POST" enctype="multipart/form-data">
         @csrf
