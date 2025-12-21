@@ -1,87 +1,132 @@
-Setting Package
+# Laravel Setting Package
 
-A simple and flexible Laravel package for managing system settings with a built-in admin panel, migrations, and routes.
-This package helps you manage homepage sections, blog settings, and other configurable content easily.
+A simple and flexible Laravel package for managing system settings with a built-in admin panel, migrations, and routes. This package helps you manage homepage sections, blog settings, and other configurable content easily.
 
-Requirements
+## Features
 
-PHP ^8.0
-Laravel ^9 / ^10 / ^11
-must need to be have any kinds of authentication system
+-   Admin panel for managing system settings
+-   Pre-built Blade views
+-   Bootstrap-based UI
+-   Easy integration with Laravel projects
+-   Database-driven settings
 
-Composer
+## Requirements
 
-Installation Guide
+-   PHP ^8.0
+-   Laravel ^9 / ^10 / ^11
+-   An existing authentication system in your Laravel project.
 
-Follow the steps below to install and configure the package in your Laravel project.
+## Installation
 
-Step 1: Add the Repository
+This package is not yet published on Packagist, so you'll need to add the repository to your project's `composer.json` file first.
 
-This package is not published on Packagist yet, so you need to add the GitHub repository manually to your main project’s composer.json file.
+### Step 0: Add the Repository to Composer
 
-Add the following inside composer.json:
+Add the following repository to your main project's `composer.json` file:
 
+```json
 "repositories": [
-{
-"type": "vcs",
-"url": "https://github.com/atikullahnasar/setting"
-}
+    {
+        "type": "vcs",
+        "url": "https://github.com/atikullahnasar/setting"
+    }
 ]
+```
 
-Save the file after adding this.
+Save the file after adding this entry.
 
-Step 2: Install the Package
+### Step 1: Install the Package
 
-Run the following command from your project root:
+After adding the repository, you can install the package using Composer:
 
+```bash
 composer require atikullahnasar/setting:dev-main
+```
 
-Step 3: Publish the Migrations
+### Step 2: Publish Assets
 
-Publish the package migrations using this command:
+You need to publish the migrations and the configuration file.
 
+**Publish the Migrations:**
+
+```bash
 php artisan vendor:publish --provider="atikullahnasar\setting\Provider\SettingPackageServiceProvider" --tag=setting-migrations
+```
 
-Step 4: Run the Migrations
+**Publish the Configuration File:**
 
-Run the database migrations:
+This will create a `config/setting.php` file, allowing you to customize the views.
 
+```bash
+php artisan vendor:publish --tag=setting-config
+```
+
+### Step 3: Run the Migrations
+
+Finally, run the database migrations to create the necessary tables for the settings:
+
+```bash
 php artisan migrate
+```
 
-then do this 1 or 2
-1) "$this->call([CountrySeeder::class,]);" this on your project database/seeders/DatabaseSeeder.php and also call
-"use atikullahnasar\setting\Database\Seeders\CountrySeeder;" use it in the top 
-2) run in your command line (php artisan db:seed --class="atikullahnasar\setting\Database\Seeders\CountrySeeder")
+### Step 4: Seed the Countries Table
 
-Step 5: Access the Settings Panel
+This package requires a list of countries to function correctly. You have two options to seed this data:
 
-After installation, you can access the settings management panel from your browser:
+**Option 1: Integrate with your main seeder**
 
+1.  Open your project's `database/seeders/DatabaseSeeder.php` file.
+2.  Add the following `use` statement at the top of the file:
+    ```php
+    use atikullahnasar\setting\Database\Seeders\CountrySeeder;
+    ```
+3.  Call the seeder inside the `run()` method:
+    ```php
+    public function run()
+    {
+        $this->call([
+            CountrySeeder::class,
+        ]);
+    }
+    ```
+4.  Then run the main seeder command: `php artisan db:seed`
+
+**Option 2: Run the seeder independently**
+
+If you prefer not to modify your `DatabaseSeeder.php`, you can run the seeder directly from the command line:
+
+```bash
+php artisan db:seed --class="atikullahnasar\setting\Database\Seeders\CountrySeeder"
+```
+
+### Step 5: Access the Settings Panel
+
+After completing the installation, you can access the settings management panel from the following URL:
+
+```
 /beft/settings
+```
 
-Example:
+**Example:**
 
+If your application is running at `http://example.com`, you can access the settings page at:
+
+```
 http://example.com/beft/settings
+```
 
-Features
+## Configuration
 
-Admin panel for managing system settings
+After publishing the configuration file, you can find it at `config/setting.php`. You can modify this file to suit your application's needs, such as changing the views or middleware.
 
-Pre-built Blade views
+## Roadmap
 
-Bootstrap-based UI
+-   [x] Bootstrap UI
 
-Easy integration with Laravel projects
+## Contributing
 
-Database-driven settings
+Contributions are welcome! Please feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/atikullahnasar/setting).
 
-Roadmap
+## License
 
-Bootstrap UI (Completed)
-Contributing
-
-Contributions, bug reports, and feature requests are welcome.
-Feel free to open an issue or submit a pull request.
-
-License
-This package is open-source software licensed under the MIT License.
+This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
