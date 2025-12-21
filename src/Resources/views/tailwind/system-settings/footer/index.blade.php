@@ -59,14 +59,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('#tab-content > div');
-    const showToastDiv = document.getElementById('showToast');
-
-    function showToast(message, type = 'success') {
-        showToastDiv.textContent = message;
-        showToastDiv.classList.remove('bg-green-500', 'bg-red-500', 'hidden');
-        showToastDiv.classList.add(type === 'success' ? 'bg-green-500' : 'bg-red-500');
-        setTimeout(() => showToastDiv.classList.add('hidden'), 2000);
-    }
 
     // Tab switching
     tabButtons.forEach(btn => {
@@ -108,14 +100,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 const data = await response.json();
-
-                if (!response.ok) {
-                    showToast(data.message || 'An error occurred.', 'error');
+                if(data.success){
+                    $('#showToast').removeClass('hidden bg-red-500').addClass('bg-green-500').text(data.message).fadeIn();
+                    setTimeout(()=> $('#showToast').fadeOut(), 2000);
                 } else {
-                    showToast(data.message, 'success');
+                    $('#showToast').removeClass('hidden bg-green-500').addClass('bg-red-500').text(data.message || 'Error').fadeIn();
+                    setTimeout(()=> $('#showToast').fadeOut(), 2000);
                 }
             } catch (error) {
-                showToast('An error occurred while submitting the form.', 'error');
+                 $('#showToast').removeClass('hidden bg-green-500').addClass('bg-red-500').text('An error occurred while submitting the form.' || 'Error').fadeIn();
+                    setTimeout(()=> $('#showToast').fadeOut(), 2000);
             }
         });
     });

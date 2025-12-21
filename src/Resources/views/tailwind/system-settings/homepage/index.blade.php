@@ -87,14 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if(i === 0) div.classList.remove('hidden'); else div.classList.add('hidden');
     });
 
-    // Toast helper
-    function showToast(message, type = 'success') {
-        const toast = document.getElementById('showToast');
-        toast.textContent = message;
-        toast.classList.remove('hidden', 'bg-green-600', 'bg-red-600');
-        toast.classList.add(type === 'success' ? 'bg-green-600' : 'bg-red-600');
-        setTimeout(() => toast.classList.add('hidden'), 2000);
-    }
 
     // Initialize Quill editors for About Us
     const aboutUsQuill1 = new Quill('#aboutUsQuill1', { modules: { toolbar: '#toolbar-container-aboutUs1' }, theme: 'snow', placeholder: 'Enter information for Box 1...' });
@@ -181,11 +173,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 const data = await response.json();
-                if(!response.ok) showToast(data.message || 'An error occurred','error');
-                else showToast(data.message,'success');
+                 if(data.success){
+                    $('#showToast').removeClass('hidden bg-red-500').addClass('bg-green-500').text(data.message).fadeIn();
+                    setTimeout(()=> $('#showToast').fadeOut(), 2000);
+                } else {
+                    $('#showToast').removeClass('hidden bg-green-500').addClass('bg-red-500').text(data.message || 'Error').fadeIn();
+                    setTimeout(()=> $('#showToast').fadeOut(), 2000);
+                }
             } catch(err){
-                console.error(err);
-                showToast('An error occurred while submitting the form','error');
+                $('#showToast').removeClass('hidden bg-green-500').addClass('bg-red-500').text('An error occurred while submitting the form.' || 'Error').fadeIn();
+                    setTimeout(()=> $('#showToast').fadeOut(), 2000);
             }
         });
     });

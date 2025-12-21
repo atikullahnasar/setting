@@ -74,7 +74,7 @@
 <!-- Navbar -->
 <nav class="bg-gray-800 text-white">
     <div class="max-w-7xl mx-auto px-8">
-        <div class="flex justify-between items-center h-16">
+        <div class="flex justify-between items-center h-16 p-2">
             <a href="{{ url('beft') }}" class="font-bold text-lg">BEFT Panel</a>
 
             <!-- Hamburger for mobile -->

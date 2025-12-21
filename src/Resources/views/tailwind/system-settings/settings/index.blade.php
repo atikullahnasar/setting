@@ -41,9 +41,7 @@
     </div>
 
     <!-- Toast -->
-    <div id="showToast"
-         class="hidden mb-4 px-4 py-2 rounded text-white text-sm font-medium">
-    </div>
+    <div id="showToast" class="hidden mb-4 px-4 py-2 rounded text-white text-sm font-medium"> </div>
 
     <!-- Tab Contents -->
     <div id="tab-content" class="space-y-6">
