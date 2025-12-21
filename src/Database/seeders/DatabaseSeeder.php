@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
-class CountrySeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 

@@ -22,8 +22,16 @@ class SettingPackageServiceProvider extends ServiceProvider
         // Load routes
         $this->loadRoutesFrom(__DIR__ . '/../Routes/web.php');
 
+        // Publish config
+        $this->publishes([
+            __DIR__ . '/../Config/setting.php' => config_path('setting.php'),
+        ], 'setting-config');
+
+        // Load views based on config
+        $layout = config('setting.layout', 'tailwind');
+
         // Load views
-        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'setting');
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views/' . $layout, 'setting');
 
         // Publish migrations
         $this->publishes([
@@ -31,7 +39,6 @@ class SettingPackageServiceProvider extends ServiceProvider
         ], 'setting-migrations');
 
         $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations');
-
     }
 
     public function register()

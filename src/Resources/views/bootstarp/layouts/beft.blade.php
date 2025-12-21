@@ -83,47 +83,19 @@
                     </a>
                 </li>
 
-                <li class="nav-item dropdown {{ request()->is('beft/settings*') || request()->is('beft/footer-settings*') || request()->is('beft/site-settings*') ? 'show' : '' }}">
-
-                    <a class="nav-link dropdown-toggle {{ request()->is('beft/settings*') || request()->is('beft/footer-settings*') || request()->is('beft/site-settings*') ? 'active' : '' }}"
-                    href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ request()->is('beft/footer-settings*') || request()->is('beft/settings*') || request()->is('beft/settings*') ? 'active' : '' }}" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Settings
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
-
-                        <li>
-                            <a class="dropdown-item {{ request()->is('beft/settings') ? 'active' : '' }}"
-                            href="{{ url('beft/settings') }}">
-                                System Settings
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item {{ request()->is('beft/footer-settings') ? 'active' : '' }}"
-                            href="{{ url('beft/footer-settings') }}">
-                                Footer Settings
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item {{ request()->is('beft/site-settings') ? 'active' : '' }}"
-                            href="{{ url('beft/site-settings') }}">
-                                Site Settings
-                            </a>
-                        </li>
-
+                        <li><a class="dropdown-item" href="{{ url('beft/settings') }}">System Settings</a></li>
+                        <li><a class="dropdown-item" href="{{ url('beft/footer-settings') }}">Footer Settings</a></li>
+                        <li><a class="dropdown-item" href="{{ url('beft/site-settings') }}">Site Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
-
-                        <li>
-                            <a class="dropdown-item {{ request()->is('beft/settings/login') ? 'active' : '' }}"
-                            href="{{ url('beft/settings/login') }}">
-                                Auth Page Settings
-                            </a>
-                        </li>
+                        <li><a class="dropdown-item" href="{{ url('beft/settings/login') }}">Auth Page Settings</a></li>
                     </ul>
                 </li>
-
             </ul>
         </div>
     </div>
