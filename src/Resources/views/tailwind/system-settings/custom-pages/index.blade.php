@@ -26,7 +26,7 @@
 
 <!-- Add/Edit Modal -->
 <div class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" id="addEditPage">
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-3xl">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-xl">
         <form id="custom-page-form" class="p-6">
             @csrf
             <input type="hidden" name="id" id="custom_page_id">
@@ -45,7 +45,7 @@
                 </div>
                 <div>
                     <label class="block mb-1 font-medium">Content</label>
-                    <div id="editor" class="border rounded h-64"></div>
+                    <div id="editor" class="border rounded" style="height: 180px;"></div>
                     <input type="hidden" name="content" id="content">
                 </div>
             </div>
