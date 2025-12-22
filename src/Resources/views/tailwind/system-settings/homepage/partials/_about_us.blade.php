@@ -50,7 +50,7 @@
             <!-- Box 1 Info (Quill Editor) -->
             <div class="md:col-span-2">
                 <label class="block text-gray-700 font-medium mb-1">1 Box Info</label>
-                <div id="toolbar-container-aboutUs1">
+                <div id="toolbar-container-aboutUs1 ">
                     <span class="ql-formats">
                         <select class="ql-font"></select>
                         <select class="ql-size"></select>
@@ -95,7 +95,7 @@
                         <button class="ql-clean"></button>
                     </span>
                 </div>
-                <div id="aboutUsQuill1" class="border border-gray-300 rounded h-40"></div>
+                <div id="aboutUsQuill1" class="border border-gray-300 rounded" style="height: 200px;"></div>
             </div>
 
             <!-- Box 1 Points -->
@@ -191,7 +191,7 @@
                         <button class="ql-clean"></button>
                     </span>
                 </div>
-                <div id="aboutUsQuill2" class="border border-gray-300 rounded h-40"></div>
+                <div id="aboutUsQuill2" class="border border-gray-300 rounded" style="height: 200px;"></div>
             </div>
 
             <!-- Box 2 Points -->
