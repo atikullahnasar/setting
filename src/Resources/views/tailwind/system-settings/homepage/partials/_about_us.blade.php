@@ -21,11 +21,7 @@
                     <input type="hidden" name="enabled" value="off">
                     <input type="checkbox" name="enabled" id="aboutUsEnabled" class="sr-only peer" value="on"
                            {{ ($settings['about_us']['enabled'] ?? false) ? 'checked' : '' }}>
-                    <span class="relative w-11 h-6 bg-gray-300 rounded-full
-                                 after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                                 after:bg-white after:border after:border-gray-300 after:rounded-full
-                                 after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600
-                                 peer-checked:after:translate-x-full"></span>
+                    <span class="relative w-11 h-6 bg-gray-300 rounded-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600 peer-checked:after:translate-x-full"></span>
                 </label>
                 <label class="font-medium text-gray-700" for="aboutUsEnabled">Section Enabled</label>
             </div>
@@ -41,7 +37,7 @@
             <!-- Box 1 Image -->
             <div>
                 <label for="box1Image" class="block text-gray-700 font-medium mb-1">Box Image</label>
-                <input type="file" id="box1Image" name="box1_image" class="w-full border border-gray-300 rounded px-3 py-2">
+                <input type="file" id="box1Image" name="box1_image" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
                 @if(isset($settings['about_us']['box1_image']))
                     <img src="{{ asset('storage/' . $settings['about_us']['box1_image']) }}" alt=""
                          class="mt-2 rounded-md w-16 h-16 object-cover">

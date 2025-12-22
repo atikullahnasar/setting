@@ -29,9 +29,8 @@ class SettingPackageServiceProvider extends ServiceProvider
 
         // Load views based on config
         $layout = config('setting.layout', 'tailwind');
-
         // Load views
-        $this->loadViewsFrom(__DIR__ . '/../Resources/views/' . $layout, 'setting');
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views/'.$layout, 'setting');
 
         // Publish migrations
         $this->publishes([

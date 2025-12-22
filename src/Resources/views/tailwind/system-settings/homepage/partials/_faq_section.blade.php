@@ -16,7 +16,7 @@
             </div>
 
             <!-- Section Enabled Switch -->
-            <div class="flex items-center md:justify-end gap-4">
+            <div class="flex items-center gap-4">
                 <label class="inline-flex items-center cursor-pointer">
                     <input type="hidden" name="enabled" value="off">
                     <input type="checkbox" name="enabled" id="faqEnabled" class="sr-only peer" value="on"
@@ -50,7 +50,7 @@
             <div>
                 <label class="block text-gray-700 font-medium mb-1">Image</label>
                 <input type="file" name="banner_image"
-                       class="w-full border border-gray-300 rounded px-3 py-1">
+                       class="w-full border border-gray-300 rounded px-3 py-2 bg-white">
                 @if(isset($settings['faq_section']['banner_image']))
                     <img src="{{ asset('storage/' . $settings['faq_section']['banner_image']) }}" alt=""
                          class="mt-2 w-16 h-16 object-cover rounded">

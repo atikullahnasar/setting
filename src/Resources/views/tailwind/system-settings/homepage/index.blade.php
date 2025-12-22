@@ -202,17 +202,134 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Dynamic Core Feature, Offer, ChooseUs handlers remain the same
-    document.addEventListener('click', function(e){
-        if(e.target.closest('.remove-button')){
-            const btn = e.target.closest('.remove-button');
-            const item = btn.closest(btn.dataset.target);
-            if(item) item.remove();
-        }
-        if(e.target.closest('.remove-chooseUsItem')){
-            e.target.closest('.chooseUsItem').remove();
+    // Add CoreFeature dynamically
+    document.querySelectorAll('.addCoreFeature').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const html = `
+                <div class="CoreFeatureItem grid grid-cols-1 md:grid-cols-12 gap-4 items-end mt-4 p-4 border rounded bg-white shadow">
+                    <div class="md:col-span-4">
+                        <label class="block text-sm font-medium text-gray-700">Title</label>
+                        <input type="text" name="items[][title]" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 border p-2">
+                    </div>
+
+                    <div class="md:col-span-4">
+                        <label class="block text-sm font-medium text-gray-700">Sub Title</label>
+                        <input type="text" name="items[][sub_title]" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 border p-2">
+                    </div>
+
+                    <div class="md:col-span-3">
+                        <label class="block text-sm font-medium text-gray-700">Image</label>
+                        <input type="file" name="items[][image]" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                    </div>
+
+                    <div class="md:col-span-1 flex justify-end">
+                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded-md remove-button">
+                            <iconify-icon icon="ic:twotone-close"></iconify-icon>
+                        </button>
+                    </div>
+                </div>`;
+            document.getElementById('coreFeatureList').insertAdjacentHTML('beforeend', html);
+        });
+    });
+
+    // Add Offer dynamically
+    document.querySelectorAll('.addOfferItem').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const html = `
+                <div class="offerItem border rounded p-4 mt-4 bg-white shadow">
+
+                    <div class="mt-2 flex justify-end">
+                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded-md remove-button" data-target=".CoreFeatureItem">
+                            <iconify-icon icon="ic:twotone-close"></iconify-icon>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700">Title</label>
+                            <input type="text" name="items[][title]" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 border p-2">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700">Image</label>
+                            <input type="file" name="items[][image]" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                        </div>
+                        <div class="md:col-span-1 flex items-end">
+                            <div class="flex items-center space-x-2">
+                                <input type="checkbox" name="items[][enabled]" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+                                <label class="text-sm text-gray-700">Enabled</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium text-gray-700">Info</label>
+                        <input type="text" name="items[][info]" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 border p-2">
+                    </div>
+
+                </div>`;
+            document.getElementById('offerList').insertAdjacentHTML('beforeend', html);
+        });
+    });
+
+    // Choose Us dynamic rows
+    const chooseUsList = document.getElementById('chooseUsList');
+
+    document.querySelector('.addChooseUsItem').addEventListener('click', function () {
+        const index = chooseUsList.querySelectorAll('.chooseUsItem').length;
+        const html = `
+            <div class="chooseUsItem grid grid-cols-1 md:grid-cols-12 gap-4 p-4 mt-4 bg-white shadow items-end border rounded ">
+                <div class="md:col-span-4">
+                    <label class="block text-sm font-medium text-gray-700">Main Info</label>
+                    <input type="text" name="items[${index}][info]"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 border p-2">
+                </div>
+
+                <div class="md:col-span-4">
+                    <label class="block text-sm font-medium text-gray-700">Main Details</label>
+                    <input type="text" name="items[${index}][details]"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 border p-2">
+                </div>
+
+                <div class="md:col-span-3">
+                    <label class="block text-sm font-medium text-gray-700">Main Image</label>
+                    <input type="file" name="items[${index}][image]"
+                        class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                </div>
+
+                <div class="md:col-span-1 flex justify-end">
+                    <button type="button" class="text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded-md remove-chooseUsItem">
+                        <iconify-icon icon="ic:twotone-close"></iconify-icon>
+                    </button>
+                </div>
+            </div>`;
+        chooseUsList.insertAdjacentHTML('beforeend', html);
+    });
+
+    // Remove Choose Us row (event delegation)
+    chooseUsList.addEventListener('click', function(e) {
+        const btn = e.target.closest('.remove-chooseUsItem');
+        if(btn){
+            btn.closest('.chooseUsItem').remove();
         }
     });
+
+
+    // Event delegation for removing items
+    document.addEventListener('click', function(e){
+        const btn = e.target.closest('.remove-button');
+        if(!btn) return;
+
+        // Check which type of item we are removing
+        if(btn.closest('.CoreFeatureItem')){
+            btn.closest('.CoreFeatureItem').remove();
+        }
+        else if(btn.closest('.offerItem')){
+            btn.closest('.offerItem').remove();
+        }
+        else if(btn.closest('.pointItem')){
+            btn.closest('.pointItem').remove();
+        }
+    });
+
 
 });
 </script>

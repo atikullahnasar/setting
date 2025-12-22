@@ -10,10 +10,7 @@
             <!-- Name -->
             <div>
                 <label for="overviewName" class="block text-gray-700 font-medium mb-1">Name</label>
-                <input type="text" id="overviewName" name="name" placeholder="Enter name"
-                       class="w-full border border-gray-300 rounded px-3 py-2
-                              focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       value="{{ $settings['overview']['name'] ?? '' }}">
+                <input type="text" id="overviewName" name="name" placeholder="Enter name" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $settings['overview']['name'] ?? '' }}">
             </div>
 
             <!-- Section Enabled Switch -->
@@ -72,7 +69,7 @@
                     </label>
                     <input type="file"
                            name="box{{ $i }}_image"
-                           class="w-full border border-gray-300 rounded px-3 py-2 bg-white">
+                           class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
 
                     @if(isset($settings['overview']['box' . $i . '_image']))
                         <div class="mt-2">

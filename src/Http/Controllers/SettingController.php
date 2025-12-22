@@ -37,6 +37,7 @@ class SettingController extends Controller
             'footer_column4' => $this->settingService->getSetting('footer_column4', []),
             'footer_social' => $this->settingService->getSetting('footer_social', []),
         ];
+
         return view('setting::system-settings.footer.index', compact('settings', 'customPages'));
     }
 
@@ -56,7 +57,6 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
-        // dd($request->all());
         $key = $request->input('_key');
         switch ($key) {
             case 'choose_us':

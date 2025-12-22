@@ -50,7 +50,7 @@
             <div class="md:col-span-2 space-y-4" id="coreFeatureList">
                 @if(isset($settings['core_features']['items']))
                     @foreach($settings['core_features']['items'] as $item)
-                        <div class="CoreFeatureItem border p-4 rounded grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
+                        <div class="CoreFeatureItem grid grid-cols-1 md:grid-cols-12 gap-4 items-end mt-4 p-4 border rounded bg-white shadow">
                             <div class="md:col-span-4">
                                 <label class="block text-gray-700 font-medium mb-1">Title</label>
                                 <input type="text" name="items[][title]" placeholder="Enter title"
@@ -65,15 +65,15 @@
                             </div>
                             <div class="md:col-span-3">
                                 <label class="block text-gray-700 font-medium mb-1">Image</label>
-                                <input type="file" name="items[][image]"
-                                       class="w-full border border-gray-300 rounded px-3 py-1">
+                                <input type="file" name="items[][image]" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
                                 @if(isset($item['image']))
                                     <img src="{{ asset('storage/' . $item['image']) }}" alt=""
                                          class="mt-2 w-16 h-16 object-cover rounded">
                                 @endif
                             </div>
+
                             <div class="md:col-span-1 flex justify-end">
-                                <button type="button" class="text-red-600 hover:text-red-800 remove-button">
+                                <button type="button" class="text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded-md remove-button" data-target=".CoreFeatureItem">
                                     <iconify-icon icon="ic:twotone-close"></iconify-icon>
                                 </button>
                             </div>

@@ -10,8 +10,7 @@
             <!-- Name -->
             <div>
                 <label for="offerName" class="block text-gray-700 font-medium mb-1">Name</label>
-                <input type="text" id="offerName" name="name" placeholder="Enter name"
-                       class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                <input type="text" id="offerName" name="name" placeholder="Enter name" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                        value="{{ $settings['offer']['name'] ?? '' }}">
             </div>
 
@@ -50,7 +49,16 @@
             <div class="md:col-span-2 space-y-4" id="offerList">
                 @if(isset($settings['offer']['items']))
                 @foreach($settings['offer']['items'] as $item)
-                    <div class="offerItem border p-4 rounded space-y-3">
+                    <div class="offerItem border rounded p-4 mt-4 bg-white shadow">
+
+                        <!-- Remove Button -->
+                        <div class="mt-2 flex justify-end">
+                        {{-- <div class="flex items-center justify-end gap-2"> --}}
+                            <button type="button" class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded remove-button"
+                            data-target=".offerItem">
+                            <iconify-icon icon="ic:twotone-close" class="text-xl"></iconify-icon>
+                            </button>
+                        </div>
                         <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
 
                             <!-- Title -->
@@ -64,7 +72,7 @@
                             <!-- Image -->
                             <div class="md:col-span-2">
                                 <label class="block text-gray-700 font-medium mb-1">Image</label>
-                                <input type="file" name="items[][image]" class="block w-full text-sm text-gray-700">
+                                <input type="file" name="items[][image]" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
                                 @if(isset($item['image']))
                                     @php
                                         $imagePath = is_array($item['image']) && isset($item['image'][0]) ? $item['image'][0] : $item['image'];
@@ -77,28 +85,15 @@
                             </div>
 
                             <!-- Item Enabled Switch -->
+
                             <div class="flex items-center gap-2">
                                 <label class="inline-flex items-center cursor-pointer">
                                     <input type="hidden" name="items[][enabled]" value="off">
-                                    <input type="checkbox" class="sr-only peer" name="items[][enabled]" value="on"
-                                           {{ ($item['enabled'] ?? false) ? 'checked' : '' }}>
-                                    <span class="relative w-11 h-6 bg-gray-300 rounded-full
-                                                 after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                                                 after:bg-white after:border after:border-gray-300 after:rounded-full
-                                                 after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600
-                                                 peer-checked:after:translate-x-full"></span>
+                                    <input type="checkbox" class="sr-only peer" name="items[][enabled]" value="on" {{ ($item['enabled'] ?? false) ? 'checked' : '' }}>
+                                    <span class="relative w-11 h-6 bg-gray-300 rounded-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600 peer-checked:after:translate-x-full"></span>
                                 </label>
                                 <span class="text-gray-700 font-medium">Enabled</span>
                             </div>
-
-                            <!-- Remove Button -->
-                            <div>
-                                <button type="button" class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded remove-button"
-                                        data-target=".offerItem">
-                                    <iconify-icon icon="ic:twotone-close" class="text-xl"></iconify-icon>
-                                </button>
-                            </div>
-
                         </div>
 
                         <!-- Info -->
@@ -108,6 +103,7 @@
                                    class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                    value="{{ $item['info'] ?? '' }}">
                         </div>
+
                     </div>
                 @endforeach
                 @endif
