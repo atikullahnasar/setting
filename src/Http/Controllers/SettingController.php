@@ -19,6 +19,8 @@ use atikullahnasar\setting\Services\Settings\SettingServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\View;
+
 class SettingController extends Controller
 {
     public function __construct(
@@ -38,6 +40,12 @@ class SettingController extends Controller
             'footer_social' => $this->settingService->getSetting('footer_social', []),
         ];
 
+        // if (View::exists('setting::system-settings.footer.index')) {
+        //     dd('setting::system-settings.footer.index');
+        // } else {
+        //     dd('setting::system-settings.footer.index');
+        // }
+        // \dd($settings);
         return view('setting::system-settings.footer.index', compact('settings', 'customPages'));
     }
 

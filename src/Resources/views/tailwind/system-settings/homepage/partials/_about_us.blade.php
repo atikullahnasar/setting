@@ -10,17 +10,14 @@
             <!-- Name -->
             <div>
                 <label for="aboutUsName" class="block text-gray-700 font-medium mb-1">Name</label>
-                <input type="text" id="aboutUsName" name="name" placeholder="Enter name"
-                       class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       value="{{ $settings['about_us']['name'] ?? '' }}">
+                <input type="text" id="aboutUsName" name="name" placeholder="Enter name" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $settings['about_us']['name'] ?? '' }}">
             </div>
 
             <!-- Section Enabled Switch -->
             <div class="flex items-center md:justify-end gap-4">
                 <label class="inline-flex items-center cursor-pointer">
                     <input type="hidden" name="enabled" value="off">
-                    <input type="checkbox" name="enabled" id="aboutUsEnabled" class="sr-only peer" value="on"
-                           {{ ($settings['about_us']['enabled'] ?? false) ? 'checked' : '' }}>
+                    <input type="checkbox" name="enabled" id="aboutUsEnabled" class="sr-only peer" value="on" {{ ($settings['about_us']['enabled'] ?? false) ? 'checked' : '' }}>
                     <span class="relative w-11 h-6 bg-gray-300 rounded-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600 peer-checked:after:translate-x-full"></span>
                 </label>
                 <label class="font-medium text-gray-700" for="aboutUsEnabled">Section Enabled</label>
@@ -29,9 +26,7 @@
             <!-- Box 1 Title -->
             <div>
                 <label for="box1Title" class="block text-gray-700 font-medium mb-1">1 Box Title</label>
-                <input type="text" id="box1Title" name="box1_title" placeholder="Enter box-1 title"
-                       class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       value="{{ $settings['about_us']['box1_title'] ?? '' }}">
+                <input type="text" id="box1Title" name="box1_title" placeholder="Enter box-1 title" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $settings['about_us']['box1_title'] ?? '' }}">
             </div>
 
             <!-- Box 1 Image -->
@@ -55,7 +50,51 @@
             <!-- Box 1 Info (Quill Editor) -->
             <div class="md:col-span-2">
                 <label class="block text-gray-700 font-medium mb-1">1 Box Info</label>
-                <div id="toolbar-container-aboutUs1" class="mb-2"></div>
+                <div id="toolbar-container-aboutUs1">
+                    <span class="ql-formats">
+                        <select class="ql-font"></select>
+                        <select class="ql-size"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-bold"></button>
+                        <button class="ql-italic"></button>
+                        <button class="ql-underline"></button>
+                        <button class="ql-strike"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <select class="ql-color"></select>
+                        <select class="ql-background"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-script" value="sub"></button>
+                        <button class="ql-script" value="super"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-header" value="1"></button>
+                        <button class="ql-header" value="2"></button>
+                        <button class="ql-blockquote"></button>
+                        <button class="ql-code-block"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-list" value="ordered"></button>
+                        <button class="ql-list" value="bullet"></button>
+                        <button class="ql-indent" value="-1"></button>
+                        <button class="ql-indent" value="+1"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-direction" value="rtl"></button>
+                        <select class="ql-align"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-link"></button>
+                        <button class="ql-image"></button>
+                        <button class="ql-video"></button>
+                        <button class="ql-formula"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-clean"></button>
+                    </span>
+                </div>
                 <div id="aboutUsQuill1" class="border border-gray-300 rounded h-40"></div>
             </div>
 
@@ -107,7 +146,51 @@
             <!-- Box 2 Info (Quill Editor) -->
             <div class="md:col-span-2">
                 <label class="block text-gray-700 font-medium mb-1">2 Box Info</label>
-                <div id="toolbar-container-aboutUs2" class="mb-2"></div>
+                <div id="toolbar-container-aboutUs2">
+                    <span class="ql-formats">
+                        <select class="ql-font"></select>
+                        <select class="ql-size"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-bold"></button>
+                        <button class="ql-italic"></button>
+                        <button class="ql-underline"></button>
+                        <button class="ql-strike"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <select class="ql-color"></select>
+                        <select class="ql-background"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-script" value="sub"></button>
+                        <button class="ql-script" value="super"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-header" value="1"></button>
+                        <button class="ql-header" value="2"></button>
+                        <button class="ql-blockquote"></button>
+                        <button class="ql-code-block"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-list" value="ordered"></button>
+                        <button class="ql-list" value="bullet"></button>
+                        <button class="ql-indent" value="-1"></button>
+                        <button class="ql-indent" value="+1"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-direction" value="rtl"></button>
+                        <select class="ql-align"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-link"></button>
+                        <button class="ql-image"></button>
+                        <button class="ql-video"></button>
+                        <button class="ql-formula"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-clean"></button>
+                    </span>
+                </div>
                 <div id="aboutUsQuill2" class="border border-gray-300 rounded h-40"></div>
             </div>
 
